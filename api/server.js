@@ -1,12 +1,12 @@
 // SETUP
 import dotenv from "dotenv";
-import path from 'path';
+import path from "path";
 dotenv.config();
 import express from "express";
 const app = express();
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
-import cors from 'cors';
+import cors from "cors";
 import authRoute from "./routes/adminRoutes.js";
 import formRoute from "./routes/formRoutes.js";
 import responseRoute from "./routes/responseRoutes.js";
@@ -18,7 +18,6 @@ app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true,
 }));
-
 const __dirname = path.resolve();
 
 
