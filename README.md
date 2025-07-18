@@ -66,8 +66,7 @@ Live: https://feedback-6ppf.onrender.com)   |    Admin credentials -> {name:"abh
     ```bash
     npm run dev
     ```
-    -   The React client will be available at `http://localhost:5173`.
-    -   The Node.js API server will be running at `http://localhost:5001`.
+    -   Website at `http://localhost:5001`.
   
 5. **Credentials:**
    
