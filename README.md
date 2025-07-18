@@ -40,7 +40,7 @@ Live: https://feedback-6ppf.onrender.com (not working right now) | Admin credent
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/abhinn14/feedback.git](https://github.com/abhinn14/feedback.git)
+    git clone https://github.com/abhinn14/feedback.git
     cd feedback
     ```
 
