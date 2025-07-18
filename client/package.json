@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "api": "file:..",
     "axios": "^1.10.0",
     "feedback": "file:..",
     "lucide-react": "^0.525.0",

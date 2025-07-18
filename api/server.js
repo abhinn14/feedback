@@ -18,7 +18,7 @@ app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true,
 }));
-const __dirname = path.resolve();
+const _dirname = path.resolve();
 
 
 // ROUTING
@@ -27,22 +27,17 @@ app.use("/api/auth",authRoute);
 app.use("/api/form",formRoute);
 app.use("/api/response",responseRoute);
 
+// DB
+const connecty = await mongoose.connect(process.env.MONGOdb);
+console.log(`Database connected!!!\n${connecty.connection.host}`);
+
 // For deployment
-if(process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname,"../client/dist")));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname,"../client","dist","index.html"));
-    });
-}
-
-
-// RUN & DB CONNECTION
-
-app.listen(PORT, async () => {
-    try {
-        const connecty = await mongoose.connect(process.env.MONGOdb);
-        console.log(`Database connected!!!\n${connecty.connection.host}`);
-    } catch(error) {
-        console.log("Database Error: ", error);
-    }
+app.use(express.static(path.join(_dirname,"/client/dist")));
+app.get('/*\w',(req,res)=>{
+    res.sendFile(path.resolve(_dirname,"client","dist","index.html"));
 });
+
+
+app.listen(PORT,()=>{
+  console.log(`Server runnning on ${PORT}`);
+})
