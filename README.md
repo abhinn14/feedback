@@ -1,39 +1,32 @@
-# Feedback Collection Platform
+# 📊 Feedback Collection Platform
 
-A full-stack MERN application designed for users to register, log in, submit feedback, and view all submitted entries.
-
----
-
-## Features
-
--   🔐 **User Authentication**: Secure user registration and login system using JSON Web Tokens (JWT).
--   📝 **Feedback Submission**: Authenticated users can submit feedback through a simple, intuitive form.
--   📜 **Feedback Display**: View a chronological list of all feedback submitted by all users.
--   🚀 **Full-Stack Application**: Built with a React frontend and a Node.js/Express backend.
+A full-stack **MERN** application where admins can log in, create and share feedback forms, and view submitted responses — enhanced with **AI-generated summaries**.
 
 ---
 
-## Tech Stack
+## ✨ Features
 
--   **Frontend**: React, Vite, React Router
--   **Backend**: Node.js, Express.js
--   **Database**: MongoDB with Mongoose
--   **Authentication**: JSON Web Tokens (JWT), bcryptjs
--   **Development**: Concurrently, Nodemon
+- 🔐 **User Authentication**: Secure login system for admins using **JWT** and **bcryptjs**. Only existing admins can create new admin accounts.
+- 📝 **Custom Feedback Form Creation**: Easily create forms with customizable text or multiple-choice questions. Each form gets a **public URL** that can be shared with customers.
+- 🚀 **Public Feedback Submission**: Customers can fill and submit feedback through the public link — **no login required**.
+- 📜 **Response Dashboard**: Admins can view and download customer responses, with automatic **AI-generated summaries** for quick insights.
+- 📥 **Export Responses**: Download raw data as `.csv` for analysis or record-keeping.
 
 ---
 
-## Getting Started
+## 🛠 Tech Stack
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+| Layer        | Tech                                         |
+| ------------ | -------------------------------------------- |
+| Frontend     | React, Zustand                               |
+| Backend      | Node.js, Express.js                          |
+| Database     | MongoDB                                      |
+| Auth         | JSON Web Tokens (JWT), bcryptjs              |
+| AI Summaries | OpenAI API                                   |
 
-### Prerequisites
+---
 
--   **Node.js** (v18 or later recommended)
--   **npm** (comes with Node.js)
--   **MongoDB**: You must have a MongoDB database instance running. You can use a local installation or a cloud service like MongoDB Atlas.
-
-### How to Run Locally
+## 🚀 How to Run Locally
 
 1.  **Clone the repository:**
     ```bash
@@ -47,47 +40,41 @@ Follow these instructions to get a copy of the project up and running on your lo
     ```bash
     # /api/.env
 
-    MONGO_URI="your_mongodb_connection_string"
-    JWT_SECRET="your_super_secret_key_for_jwt"
+    PORT = 5001
+    JWT_KEY = "your_super_secret_key_for_jwt"
+    MONGOdb = "your_mongodb_connection_string"
+    OPENAI_API_KEY="your_openai_api_key"
+    NODE_ENV = development
     ```
-    -   Replace `your_mongodb_connection_string` with your actual MongoDB connection URI.
-    -   Replace `your_super_secret_key_for_jwt` with a long, random, and private string.
 
 3.  **Install dependencies:**
-    From the **root** directory, run the following command. It will install dependencies for both the root, client, and api projects.
     ```bash
+    cd api
+    npm install
+    cd ..
+    cd client
     npm install
     ```
 
 4.  **Run the application:**
-    This command will start both the backend server and the frontend client concurrently.
     ```bash
+    cd api
+    npm run dev
+    (in another terminal)
+    cd client
     npm run dev
     ```
     -   The React client will be available at `http://localhost:5173`.
-    -   The Node.js API server will be running at `http://localhost:5000`.
+    -   The Node.js API server will be running at `http://localhost:5001`.
 
 ---
 
-## Approach and Design Decisions
+## 🧠 Approach and Design Decisions
 
-This project was built with a focus on creating a standard, maintainable, and scalable MERN stack application.
+State management: Used Zustand for simple, lightweight state instead of heavier libraries.
 
-### 1. Project Structure (Monorepo-like)
+Auth: Chose JWT for stateless authentication with secure HTTP-only cookies.
 
-The project is organized into two main folders, `client/` and `api/`, within a single GitHub repository.
+AI summaries: Integrated OpenAI to give admins quick overviews of responses.
 
--   **Decision**: This structure keeps the frontend and backend codebases separate for clarity and independent development while allowing them to be managed and versioned together. It simplifies the initial setup without the complexity of a full monorepo tooling like Lerna or Turborepo.
--   **Benefit**: A developer can work on the entire feature-stack (UI to database) from a single repository. The root `package.json` uses `npm` workspaces and `concurrently` to manage and run both services with single commands (`npm install`, `npm run dev`), which greatly enhances the developer experience.
-
-### 2. Backend (API)
-
--   **Node.js & Express.js**: Chosen for its vast ecosystem, performance, and ubiquity in modern web development. Express.js provides a minimalist and flexible framework for building a robust REST API.
--   **MongoDB & Mongoose**: MongoDB's flexible, document-based (NoSQL) structure is ideal for rapid development and evolving application requirements. Mongoose was added on top to provide schema validation, data modeling, and business logic hooks, bringing a layer of structure to the flexible nature of MongoDB.
--   **JWT for Authentication**: Instead of session-based authentication, JWTs were chosen. This makes the API **stateless**, meaning each request from the client contains all the information needed to authenticate it. This is more scalable and simplifies the server logic, as the server does not need to store session state. Password hashing with `bcryptjs` is a standard, secure practice to prevent plain-text password storage.
-
-### 3. Frontend (Client)
-
--   **React & Vite**: React was chosen for its component-based architecture, which makes building complex UIs manageable and reusable. **Vite** was selected as the build tool over the older Create React App (CRA) due to its significantly faster development server startup and Hot Module Replacement (HMR), leading to a much better developer experience.
--   **React Router**: The `react-router-dom` library was used to create a **Single Page Application (SPA)**. This allows for seamless navigation between pages (like Home, Login, Register) without a full page reload, providing a faster, more native-app-like user experience.
--   **State Management**: For this project's scope, React's built-in hooks (`useState`, `useContext`) are sufficient for managing state. This avoids the boilerplate and complexity of external libraries like Redux or MobX, keeping the frontend lightweight and easier to understand.
+Public forms: Used generated URLs (publicUrl) for customer submissions without exposing admin data.
