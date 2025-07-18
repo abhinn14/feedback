@@ -22,7 +22,7 @@ A full-stack **MERN** application where admins can log in, create and share feed
 | Backend      | Node.js, Express.js                          |
 | Database     | MongoDB                                      |
 | Auth         | JSON Web Tokens (JWT), bcryptjs              |
-| AI Summaries | OpenAI API                                   |
+| AI           | OpenAI API                                   |
 
 ---
 
@@ -71,10 +71,33 @@ A full-stack **MERN** application where admins can log in, create and share feed
 
 ## 🧠 Approach and Design Decisions
 
-State management: Used Zustand for simple, lightweight state instead of heavier libraries.
+Public vs Protected Routes:
+Public routes -> Customers access form via unique publicUrl without login.
+Protected routes -> Admin-only dashboard, create form, view responses (protected with middleware).
 
-Auth: Chose JWT for stateless authentication with secure HTTP-only cookies.
+JWT Authentication with HTTP-only Cookies:
+Used JWT tokens stored in secure HTTP-only cookies to protect tokens from XSS and keep sessions stateless.
 
-AI summaries: Integrated OpenAI to give admins quick overviews of responses.
+Lightweight State Management with Zustand:
+Chose Zustand over Redux for simplicity — perfect for storing auth user, current form, responses, and loading states without complex setup.
 
-Public forms: Used generated URLs (publicUrl) for customer submissions without exposing admin data.
+Unique public URLs:
+Generated random publicUrl on form creation, allowing admins to share forms publicly without exposing sensitive data.
+
+AI-Powered Summaries:
+Integrated OpenAI to auto-generate feedback summaries, giving admins quick insights at a glance.
+
+Flexible Form Model:
+Stored forms with a dynamic list of questions (text or multiple-choice), making it easy to support new types in future (e.g., ratings, checkboxes).
+
+Clear Separation of Concerns:
+Controllers handle business logic
+Routes handle HTTP layer
+Models define data schema
+Frontend handles UI and calls store actions
+
+Good UX:
+Added loading indicators, toast notifications (success/error), and clear empty states to keep experience smooth even on slow networks.
+
+CSV Export (bonus):
+Built a route to let admins export raw responses as CSV for analysis.
