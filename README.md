@@ -45,10 +45,9 @@ Live: https://feedback-6ppf.onrender.com)   |    Admin credentials -> {name:"abh
     ```
 
 2.  **Set up environment variables:**
-    Create a `.env` file inside the `api/` directory. This file will store your database connection string and secret key.
+    Create a `.env` file in the root directory.
 
     ```bash
-    # /api/.env
 
     PORT = 5001
     JWT_KEY = "your_super_secret_key_for_jwt"
