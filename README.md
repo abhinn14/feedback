@@ -75,7 +75,8 @@ A full-stack **MERN** application where admins can log in, create and share feed
     -   The React client will be available at `http://localhost:5173`.
     -   The Node.js API server will be running at `http://localhost:5001`.
   
-5. **Credentials**
+5. **Credentials:**
+   
     Only exisiting admins can create new admin accounts. So add the first the admin manually by sending {"name":"","password":""} to `http://localhost:5001/api/signup` using POSTMAN API.
 
 ---
