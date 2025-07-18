@@ -6,9 +6,9 @@ A full-stack **MERN** application where admins can log in, create and share feed
 
 <a href="https://ibb.co/1ftDgNK3"><img src="https://i.ibb.co/Gv4K6DkX/Screenshot-2025-07-18-115306.png" alt="Screenshot-2025-07-18-115306" border="0"></a>
 
-<a href="https://ibb.co/QF8HyV1F"><img src="https://i.ibb.co/99w4Q0C9/Screenshot-2025-07-18-115420.png" alt="Screenshot-2025-07-18-115420" border="0"></a>
+<a href="https://ibb.co/fVW79M7Q"><img src="https://i.ibb.co/dsvytBy7/Screenshot-2025-07-18-115826.png" alt="Screenshot-2025-07-18-115826" border="0"></a>
 
-<a href="https://ibb.co/TMGvFnRX"><img src="https://i.ibb.co/jkY61xGK/Screenshot-2025-07-18-115503.png" alt="Screenshot-2025-07-18-115503" border="0"></a>
+<a href="https://ibb.co/mrgwpMfF"><img src="https://i.ibb.co/cKVHq74X/Screenshot-2025-07-18-115737.png" alt="Screenshot-2025-07-18-115737" border="0"></a>
 
 ---
 
