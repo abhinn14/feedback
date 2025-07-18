@@ -4,6 +4,12 @@ A full-stack **MERN** application where admins can log in, create and share feed
 
 <a href="https://ibb.co/BVbd9hbK"><img src="https://i.ibb.co/6RzVkKzJ/Screenshot-2025-07-18-114614.png" alt="Screenshot-2025-07-18-114614" border="0"></a>
 
+<a href="https://ibb.co/1ftDgNK3"><img src="https://i.ibb.co/Gv4K6DkX/Screenshot-2025-07-18-115306.png" alt="Screenshot-2025-07-18-115306" border="0"></a>
+
+<a href="https://ibb.co/QF8HyV1F"><img src="https://i.ibb.co/99w4Q0C9/Screenshot-2025-07-18-115420.png" alt="Screenshot-2025-07-18-115420" border="0"></a>
+
+<a href="https://ibb.co/TMGvFnRX"><img src="https://i.ibb.co/jkY61xGK/Screenshot-2025-07-18-115503.png" alt="Screenshot-2025-07-18-115503" border="0"></a>
+
 ---
 
 ## ✨ Features
@@ -68,6 +74,9 @@ A full-stack **MERN** application where admins can log in, create and share feed
     ```
     -   The React client will be available at `http://localhost:5173`.
     -   The Node.js API server will be running at `http://localhost:5001`.
+  
+5. **Credentials**
+    Only exisiting admins can create new admin accounts. So add the first the admin manually by sending {"name":"","password":""} to `http://localhost:5001/api/signup` using POSTMAN API.
 
 ---
 
