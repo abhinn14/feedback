@@ -99,5 +99,8 @@ Frontend handles UI and calls store actions
 Good UX:
 Added loading indicators, toast notifications (success/error), and clear empty states to keep experience smooth even on slow networks.
 
-CSV Export (bonus):
+CSV Export:
 Built a route to let admins export raw responses as CSV for analysis.
+
+Mobile-Responsive UI:
+Built with responsive layout and CSS so the app looks clean and is usable on phones, tablets, and desktops.
